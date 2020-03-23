@@ -26,6 +26,7 @@ public class Client extends Player {
 
     @Override
     public void start() {
+        log.info("starting sender");
         while (!messagesSent.equals(Application.MAX_MESSAGES)) {
             Try.withResources(() -> new Socket("localhost", Application.PORT_NUMBER))
                     .of(this::runInternal)

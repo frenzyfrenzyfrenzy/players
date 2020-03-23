@@ -27,6 +27,7 @@ public class Server extends Player {
 
     @Override
     public void start() {
+        log.info("starting receiver");
         Try.withResources(() -> new ServerSocket(Application.PORT_NUMBER))
                 .of(this::runInternal)
                 .onFailure(throwable -> log.error("Error starting server:", throwable));
