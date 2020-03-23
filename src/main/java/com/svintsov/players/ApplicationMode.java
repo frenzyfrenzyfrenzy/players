@@ -17,7 +17,8 @@ import java.util.stream.Stream;
 public enum ApplicationMode {
 
     SENDER("sender"),
-    RECEIVER("receiver");
+    RECEIVER("receiver"),
+    STANDALONE("standalone");
 
     private final String value;
 

@@ -26,7 +26,7 @@ public class Application {
     public static void main(String[] args) {
 
         Options options = new Options();
-        options.addOption(new Option("m", MODE_OPTION, true, "Mode: either sender or receiver"));
+        options.addOption(new Option("m", MODE_OPTION, true, "Mode: sender, receiver or standalone"));
 
         CommandLineParser parser = new DefaultParser();
         Try.of(() -> parser.parse(options, args)).toEither()
@@ -40,7 +40,12 @@ public class Application {
     }
 
     private static void startInMode(ApplicationMode mode) {
-        Player.createWithMode(mode).start();
+        if (ApplicationMode.STANDALONE.equals(mode)) {
+            new Thread(() -> Player.createWithMode(ApplicationMode.RECEIVER).start()).start();
+            new Thread(() -> Player.createWithMode(ApplicationMode.SENDER).start()).start();;
+        } else {
+            Player.createWithMode(mode).start();
+        }
     }
 
 }
