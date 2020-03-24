@@ -1,4 +1,4 @@
-package com.svintsov.players;
+package com.svintsov.players.misc;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +8,10 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * ApplicationMode.
+ * Operating mode of application.
+ * {@link #SENDER} - start player sending messages
+ * {@link #RECEIVER} - start player receiving messages
+ * {@link #STANDALONE} - start both player in one process
  *
  * @author Ilya_Svintsov
  */

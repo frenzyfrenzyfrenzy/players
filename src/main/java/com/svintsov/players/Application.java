@@ -1,5 +1,8 @@
 package com.svintsov.players;
 
+import com.svintsov.players.player.Player;
+import com.svintsov.players.misc.ApplicationMode;
+import com.svintsov.players.misc.CommandLineException;
 import io.vavr.control.Either;
 import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +15,9 @@ import org.apache.commons.cli.Options;
 import java.util.Objects;
 
 /**
- * Application.
+ * Application entry point. Parses command line and starts either one specific player or both in one process.
+ * Command line should contain one argument: -mode. Either sender, receiver or standalone.
+ * See {@link ApplicationMode}.
  *
  * @author Ilya_Svintsov
  */

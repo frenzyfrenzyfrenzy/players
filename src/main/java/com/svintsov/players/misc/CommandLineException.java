@@ -1,7 +1,7 @@
-package com.svintsov.players;
+package com.svintsov.players.misc;
 
 /**
- * CommandLineException.
+ * Exception while parsing command line arguments.
  *
  * @author Ilya_Svintsov
  */

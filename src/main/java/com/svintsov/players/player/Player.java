@@ -1,13 +1,16 @@
-package com.svintsov.players;
+package com.svintsov.players.player;
+
+import com.svintsov.players.misc.ApplicationMode;
 
 /**
- * Player.
+ * General {@link Player} abstraction, that can send and receive messages.
+ * Can be either {@link ApplicationMode#SENDER} or {@link ApplicationMode#RECEIVER}.
+ * Use factory method {@link #createWithMode(ApplicationMode)} to create new instances.
+ * Use {@link #start()} to start accepting/sending messages.
  *
  * @author Ilya_Svintsov
  */
 public abstract class Player {
-
-    public abstract ApplicationMode getMode();
 
     public abstract void start();
 
